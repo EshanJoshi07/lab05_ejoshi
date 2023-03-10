@@ -13,17 +13,20 @@ using namespace std;
 //template <class T>;
 
 //constructor --> set the root as null
-template <class T> GenBST<T>::GenBST() {
+template <class T> 
+GenBST<T>::GenBST() {
     root = nullptr;
 }
 
 // // // destructor deletes all nodes
-template <class T> GenBST<T>::~GenBST() {
+template <class T> 
+GenBST<T>::~GenBST() {
     clear(root);
 }
 
 // //destructor helper --> recrusive 
-void template <class T> GenBST<T>::clear(Node *n) {
+template <class T>
+void GenBST<T>::clear(Node *n) {
     if (n) {
 	    clear(n->left);
 	    clear(n->right);
@@ -32,7 +35,8 @@ void template <class T> GenBST<T>::clear(Node *n) {
 }
 
 // //insert value in tree; return false if duplicate
-bool template <class T> GenBST<T>::insert(T value) {
+template <class T>
+bool GenBST<T>::insert(T value) {
 
     //check if tree is empty
     if (!root) {
@@ -44,7 +48,8 @@ bool template <class T> GenBST<T>::insert(T value) {
 }
 
 // // //insert helper (assumes n is never 0) --> recrusive 
-bool template <class T> GenBST<T>::insert(T value, Node *n) {
+template <class T>
+bool GenBST<T>::insert(T value, Node *n) {
     //check if value = n->info
     if (value == n->info)
 	    return false;
@@ -75,13 +80,15 @@ bool template <class T> GenBST<T>::insert(T value, Node *n) {
 }
 
 // //printPreOrder
-void template <class T> GenBST<T>::printPreOrder() const {
+template <class T>
+void GenBST<T>::printPreOrder() const {
     Node *n = root;
     printPreOrder(n);
 }
 
-// //printPreOrder helper --> recursive 
-void template <class T> GenBST<T>::printPreOrder(Node *n) const {
+// //printPreOrder helper --> recursive
+template <class T> 
+void GenBST<T>::printPreOrder(Node *n) const {
     if (n) {
 	    cout << n->info << " ";
 	    printPreOrder(n->left);
@@ -90,13 +97,15 @@ void template <class T> GenBST<T>::printPreOrder(Node *n) const {
 }
 
 // //printInOrder
-void template <class T> GenBST<T>::printInOrder() const {
+template <class T>
+void GenBST<T>::printInOrder() const {
     Node *n = root;
     printInOrder(n);
 }
 
 // //printInOrder helper --> recursive
-void template <class T> GenBST<T>::printInOrder(Node *n) const {
+template <class T>
+void GenBST<T>::printInOrder(Node *n) const {
     if (n == NULL){
         return;
     }
@@ -106,13 +115,15 @@ void template <class T> GenBST<T>::printInOrder(Node *n) const {
 }
 
 //printPostOrder
-void template <class T> GenBST<T>::printPostOrder() const {
+template <class T>
+void GenBST<T>::printPostOrder() const {
     Node *n = root;
     printPostOrder(n);
 }
 
 //printPostOrder helper --> recursive
-void template <class T> GenBST<T>::printPostOrder(Node *n) const {
+template <class T>
+void GenBST<T>::printPostOrder(Node *n) const {
     if (n == NULL){
         return;
     }
@@ -121,13 +132,15 @@ void template <class T> GenBST<T>::printPostOrder(Node *n) const {
     cout << n->info << " ";
 }
 
-int template <class T> GenBST<T>::sum() const {
+template <class T>
+int GenBST<T>::sum() const {
     Node *n = root;
     return sum(n);
 }
 
 // //sum helper --> recursive
-int template <class T> GenBST<T>::sum(Node *n) const {
+template <class T>
+int GenBST<T>::sum(Node *n) const {
     if (n == NULL){
         return 0;
     }
@@ -135,20 +148,23 @@ int template <class T> GenBST<T>::sum(Node *n) const {
 }
 
 // //counter
-int template <class T> GenBST<T>::count() const {
+template <class T>
+int GenBST<T>::count() const {
     Node *n = root;
     return count(n);
 }
 
 //counter hlper --> recurvsive
-int template <class T> GenBST<T>::count(Node *n) const {
+template <class T>
+int GenBST<T>::count(Node *n) const {
     if (n == NULL){
         return 0;
     }
     return (1 + count(n->left) + count(n->right));
 }
 
-template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getNodeFor(int value, Node* n) const{
+template <class T>
+GenBST<T>::Node* GenBST<T>::getNodeFor(T value, Node* n) const{
     if(n==NULL){
         return NULL;
     }
@@ -169,12 +185,14 @@ template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getNodeFor(int
 }
 
 // // returns true if value is in the tree; false if not
-bool template <class T> GenBST<T>::contains(T value) const {   
+template <class T>
+bool GenBST<T>::contains(T value) const {   
     return getNodeFor(value,root)!= NULL;
 }
 
 // // returns the Node containing the predecessor of the given value
-template <class T> GenBST<T>::Node* Cards::getPredecessorNode(T value) const{
+template <class T> 
+typename GenBST<T>::Node* GenBST<T>::getPredecessorNode(T value) const{
     Node* temp = getNodeFor(value,root);
     Node* min = root;
     while (min->left){
@@ -204,7 +222,8 @@ template <class T> GenBST<T>::Node* Cards::getPredecessorNode(T value) const{
 }
 
 // // returns the predecessor value of the given value or 0 if there is none
-int template <class T> GenBST<T>::getPredecessor(T value) const{
+template <class T> 
+T GenBST<T>::getPredecessor(T value) const{
     if (getPredecessorNode(value) == NULL) {
         return 0;
     }
@@ -214,7 +233,8 @@ int template <class T> GenBST<T>::getPredecessor(T value) const{
 }
 
 // // returns the Node containing the successor of the given value
-template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNode(T value) const{
+template <class T> 
+typename GenBST<T>::Node* GenBST<T>::getSuccessorNode(T value) const{
     
     Node* temp = getNodeFor(value,root);
     Node* max = root;
@@ -245,7 +265,8 @@ template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNo
 }
 
 // returns the successor value of the given value or 0 if there is none
-int template <class T> GenBST<T>::getSuccessor(T value) const{
+template <class T> 
+T GenBST<T>::getSuccessor(T value) const{
     if (getSuccessorNode(value) == NULL) {
         return 0;
     }
@@ -256,7 +277,8 @@ int template <class T> GenBST<T>::getSuccessor(T value) const{
 
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
-bool template <class T> GenBST<T>::remove(T value){
+template <class T> 
+bool GenBST<T>::remove(T value){
     Node* temp = getNodeFor(value,root);
     if (temp == NULL) {
         return false;
@@ -307,7 +329,8 @@ bool template <class T> GenBST<T>::remove(T value){
 }
 
 //left side has larger values
-int template <class T> GenBST<T>::minVal() const{
+template <class T> 
+int GenBST<T>::minVal() const{
     Node *min = root;
     while (min->left) {
         min = min->left;
@@ -316,7 +339,8 @@ int template <class T> GenBST<T>::minVal() const{
 }
 
 // //right side has larger values
-int template <class T> GenBST<T>::maxVal() const {
+template <class T> 
+int GenBST<T>::maxVal() const {
     Node *max = root;
     while (max->right) {
         max = max->right;
