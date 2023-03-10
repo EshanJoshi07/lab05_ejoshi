@@ -81,245 +81,245 @@ void template <class T> GenBST<T>::printPreOrder() const {
 }
 
 // //printPreOrder helper --> recursive 
-// void Cards::printPreOrder(Node *n) const {
-//     if (n) {
-// 	    cout << n->info << " ";
-// 	    printPreOrder(n->left);
-// 	    printPreOrder(n->right);
-//     }
-// }
+void template <class T> GenBST<T>::printPreOrder(Node *n) const {
+    if (n) {
+	    cout << n->info << " ";
+	    printPreOrder(n->left);
+	    printPreOrder(n->right);
+    }
+}
 
 // //printInOrder
-// void Cards::printInOrder() const {
-//     Node *n = root;
-//     printInOrder(n);
-// }
+void template <class T> GenBST<T>::printInOrder() const {
+    Node *n = root;
+    printInOrder(n);
+}
 
-// // //printInOrder helper --> recursive
-// void Cards::printInOrder(Node *n) const {
-//     if (n == NULL){
-//         return;
-//     }
-//     printInOrder(n->left);
-//     cout << n->info << " ";
-//     printInOrder(n->right);
-// }
+// //printInOrder helper --> recursive
+void template <class T> GenBST<T>::printInOrder(Node *n) const {
+    if (n == NULL){
+        return;
+    }
+    printInOrder(n->left);
+    cout << n->info << " ";
+    printInOrder(n->right);
+}
 
-// //printPostOrder
-// void Cards::printPostOrder() const {
-//     Node *n = root;
-//     printPostOrder(n);
-// }
+//printPostOrder
+void template <class T> GenBST<T>::printPostOrder() const {
+    Node *n = root;
+    printPostOrder(n);
+}
 
-// //printPostOrder helper --> recursive
-// void Cards::printPostOrder(Node *n) const {
-//     if (n == NULL){
-//         return;
-//     }
-//     printPostOrder(n->left);
-//     printPostOrder(n->right);
-//     cout << n->info << " ";
-// }
+//printPostOrder helper --> recursive
+void template <class T> GenBST<T>::printPostOrder(Node *n) const {
+    if (n == NULL){
+        return;
+    }
+    printPostOrder(n->left);
+    printPostOrder(n->right);
+    cout << n->info << " ";
+}
 
-// int Cards::sum() const {
-//     Node *n = root;
-//     return sum(n);
-// }
+int template <class T> GenBST<T>::sum() const {
+    Node *n = root;
+    return sum(n);
+}
 
-// // //sum helper --> recursive
-// int Cards::sum(Node *n) const {
-//     if (n == NULL){
-//         return 0;
-//     }
-//     return (n->info + sum(n->left) + sum(n->right));
-// }
+// //sum helper --> recursive
+int template <class T> GenBST<T>::sum(Node *n) const {
+    if (n == NULL){
+        return 0;
+    }
+    return (n->info + sum(n->left) + sum(n->right));
+}
 
-// // //counter
-// int Cards::count() const {
-//     Node *n = root;
-//     return count(n);
-// }
+// //counter
+int template <class T> GenBST<T>::count() const {
+    Node *n = root;
+    return count(n);
+}
 
-// //counter hlper --> recurvsive
-// int Cards::count(Node *n) const {
-//     if (n == NULL){
-//         return 0;
-//     }
-//     return (1 + count(n->left) + count(n->right));
-// }
+//counter hlper --> recurvsive
+int template <class T> GenBST<T>::count(Node *n) const {
+    if (n == NULL){
+        return 0;
+    }
+    return (1 + count(n->left) + count(n->right));
+}
 
-// Cards::Node* Cards::getNodeFor(int value, Node* n) const{
-//     if(n==NULL){
-//         return NULL;
-//     }
-//     else if(n->info==value){
-//         return n;
-//     }
-//     else if(n->left==NULL && n->right==NULL){
-//         return NULL;
-//     }
-//     else{
-//         if(n->info>value){
-//             return getNodeFor(value,n->left);
-//         }
-//         else{
-//             return getNodeFor(value,n->right);
-//         }
-//     }
-// }
+template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getNodeFor(int value, Node* n) const{
+    if(n==NULL){
+        return NULL;
+    }
+    else if(n->info==value){
+        return n;
+    }
+    else if(n->left==NULL && n->right==NULL){
+        return NULL;
+    }
+    else{
+        if(n->info>value){
+            return getNodeFor(value,n->left);
+        }
+        else{
+            return getNodeFor(value,n->right);
+        }
+    }
+}
 
-// // // returns true if value is in the tree; false if not
-// bool Cards::contains(int value) const {   
-//     return getNodeFor(value,root)!= NULL;
-// }
+// // returns true if value is in the tree; false if not
+bool template <class T> GenBST<T>::contains(int value) const {   
+    return getNodeFor(value,root)!= NULL;
+}
 
-// // // returns the Node containing the predecessor of the given value
-// Cards::Node* Cards::getPredecessorNode(int value) const{
-//     Node* temp = getNodeFor(value,root);
-//     Node* min = root;
-//     while (min->left){
-//         min = min->left;
-//     }
-//     if (temp == min){
-//         return 0;
-//     }
-//     else {
-//         if (temp->left){
-//             temp = temp->left;
-//             while (temp->right) {
-//                 temp = temp->right;
-//             }
-//         }
-//         else {
-//             while (temp->parent) {
-//                 if (temp->parent->right == temp){
-//                     return temp->parent;
-//                 }
-//                 temp = temp->parent;
-//             }
-//         }
-//         return temp;
-//     }
+// // returns the Node containing the predecessor of the given value
+template <class T> GenBST<T>::Node* Cards::getPredecessorNode(int value) const{
+    Node* temp = getNodeFor(value,root);
+    Node* min = root;
+    while (min->left){
+        min = min->left;
+    }
+    if (temp == min){
+        return 0;
+    }
+    else {
+        if (temp->left){
+            temp = temp->left;
+            while (temp->right) {
+                temp = temp->right;
+            }
+        }
+        else {
+            while (temp->parent) {
+                if (temp->parent->right == temp){
+                    return temp->parent;
+                }
+                temp = temp->parent;
+            }
+        }
+        return temp;
+    }
     
-// }
+}
 
-// // // returns the predecessor value of the given value or 0 if there is none
-// int Cards::getPredecessor(int value) const{
-//     if (getPredecessorNode(value) == NULL) {
-//         return 0;
-//     }
-//     else {
-//         return (getPredecessorNode(value))->info;
-//     }
-// }
+// // returns the predecessor value of the given value or 0 if there is none
+int template <class T> GenBST<T>::getPredecessor(int value) const{
+    if (getPredecessorNode(value) == NULL) {
+        return 0;
+    }
+    else {
+        return (getPredecessorNode(value))->info;
+    }
+}
 
-// // // returns the Node containing the successor of the given value
-// Cards::Node* Cards::getSuccessorNode(int value) const{
+// // returns the Node containing the successor of the given value
+template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNode(int value) const{
     
-//     Node* temp = getNodeFor(value,root);
-//     Node* max = root;
-//     while (max->right) {
-//         max = max->right;
-//     }
-//     if (temp == max) {
-//         return 0;
-//     }
-//     else {
-//         if (temp->right) {
-//             temp = temp->right;
-//             while (temp->left) {
-//                 temp = temp->left;
-//             }
-//         }
-//         else {
-//             while (temp->parent) {
-//                 if (temp->parent->left == temp) {
-//                     return temp->parent;
-//                 }
-//                 temp = temp->parent;
-//             }
+    Node* temp = getNodeFor(value,root);
+    Node* max = root;
+    while (max->right) {
+        max = max->right;
+    }
+    if (temp == max) {
+        return 0;
+    }
+    else {
+        if (temp->right) {
+            temp = temp->right;
+            while (temp->left) {
+                temp = temp->left;
+            }
+        }
+        else {
+            while (temp->parent) {
+                if (temp->parent->left == temp) {
+                    return temp->parent;
+                }
+                temp = temp->parent;
+            }
             
-//         }
-//         return temp;
-//     }
-// }
+        }
+        return temp;
+    }
+}
 
-// // returns the successor value of the given value or 0 if there is none
-// int Cards::getSuccessor(int value) const{
-//     if (getSuccessorNode(value) == NULL) {
-//         return 0;
-//     }
-//     else {
-//         return (getSuccessorNode(value))->info;
-//     }
-// }
+// returns the successor value of the given value or 0 if there is none
+int template <class T> GenBST<T>::getSuccessor(int value) const{
+    if (getSuccessorNode(value) == NULL) {
+        return 0;
+    }
+    else {
+        return (getSuccessorNode(value))->info;
+    }
+}
 
-// // deletes the Node containing the given value from the tree
-// // returns true if the node exist and was deleted or false if the node does not exist
-// bool Cards::remove(int value){
-//     Node* temp = getNodeFor(value,root);
-//     if (temp == NULL) {
-//         return false;
-//     }
-//     if ((temp->left == NULL) && (temp->right == NULL)) {
-//         if (temp == root) {
-//             root = NULL;
-//         }
-//         else if (temp->parent->left == temp) {
-//             temp->parent->left = NULL;
-//         }
-//         else {
-//             temp->parent->right = NULL;
-//         }
-//         delete temp;
-//         return true;
-//     }
-//     else if (temp->left && temp->right) {
-//         int num = getPredecessor(temp->info);
-//         remove(getPredecessor(temp->info));
-//         temp->info = num;
+// deletes the Node containing the given value from the tree
+// returns true if the node exist and was deleted or false if the node does not exist
+bool template <class T> GenBST<T>::remove(int value){
+    Node* temp = getNodeFor(value,root);
+    if (temp == NULL) {
+        return false;
+    }
+    if ((temp->left == NULL) && (temp->right == NULL)) {
+        if (temp == root) {
+            root = NULL;
+        }
+        else if (temp->parent->left == temp) {
+            temp->parent->left = NULL;
+        }
+        else {
+            temp->parent->right = NULL;
+        }
+        delete temp;
+        return true;
+    }
+    else if (temp->left && temp->right) {
+        int num = getPredecessor(temp->info);
+        remove(getPredecessor(temp->info));
+        temp->info = num;
 
-//         return true;
-//     }
-//     else{
-//         Node* c;
-//         if (temp->left) {
-//             c = temp->left;
-//         }
-//         else {
-//             c = temp->right;
-//         }
-//         if (temp != root) {
-//             if (temp->parent->left == temp) {
-//                 temp->parent->left = c;
-//             }
-//             else {
-//                 temp->parent->right = c;
-//             }
-//             c->parent = temp->parent;
-//         }
-//         else {
-//             root = c;
-//         }
-//         delete temp;
-//         return true;
-//     }
-// }
+        return true;
+    }
+    else{
+        Node* c;
+        if (temp->left) {
+            c = temp->left;
+        }
+        else {
+            c = temp->right;
+        }
+        if (temp != root) {
+            if (temp->parent->left == temp) {
+                temp->parent->left = c;
+            }
+            else {
+                temp->parent->right = c;
+            }
+            c->parent = temp->parent;
+        }
+        else {
+            root = c;
+        }
+        delete temp;
+        return true;
+    }
+}
 
-// //left side has larger values
-// int Cards::minVal() const{
-//     Node *min = root;
-//     while (min->left) {
-//         min = min->left;
-//     }
-//     return (min->info);
-// }
+//left side has larger values
+int template <class T> GenBST<T>::minVal() const{
+    Node *min = root;
+    while (min->left) {
+        min = min->left;
+    }
+    return (min->info);
+}
 
-// // //right side has larger values
-// int Cards::maxVal() const {
-//     Node *max = root;
-//     while (max->right) {
-//         max = max->right;
-//     }
-//     return (max->info);
-// }
+// //right side has larger values
+int template <class T> GenBST<T>::maxVal() const {
+    Node *max = root;
+    while (max->right) {
+        max = max->right;
+    }
+    return (max->info);
+}
