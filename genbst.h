@@ -16,11 +16,11 @@ class GenBST {
         void printPreOrder() const;
         void printInOrder() const;
         void printPostOrder() const;
-        T sum() const;
-        T count() const;
+        int sum() const;
+        int count() const;
         bool contains(T value) const;
-        T getPredecessor(T value) const;
-        T getSuccessor(T value) const;
+        int getPredecessor(T value) const;
+        int getSuccessor(T value) const;
         bool remove(T value);
         // int minVal() const;
         // int maxVal() const;
@@ -38,8 +38,8 @@ class GenBST {
         void printPreOrder(Node *n) const;
         void printInOrder(Node *n) const;
         void printPostOrder(Node *n) const;
-        T sum(Node *n) const;
-        T count(Node *n) const;
+        int sum(Node *n) const;
+        int count(Node *n) const;
         Node* getSuccessorNode(T value) const;
         Node* getPredecessorNode(T value) const;
         

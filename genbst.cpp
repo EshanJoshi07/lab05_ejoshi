@@ -133,14 +133,14 @@ void GenBST<T>::printPostOrder(Node *n) const {
 }
 
 template <class T>
-T GenBST<T>::sum() const {
+int GenBST<T>::sum() const {
     Node *n = root;
     return sum(n);
 }
 
 // //sum helper --> recursive
 template <class T>
-T GenBST<T>::sum(Node *n) const {
+int GenBST<T>::sum(Node *n) const {
     if (n == NULL){
         return 0;
     }
@@ -149,14 +149,14 @@ T GenBST<T>::sum(Node *n) const {
 
 // //counter
 template <class T>
-T GenBST<T>::count() const {
+int GenBST<T>::count() const {
     Node *n = root;
     return count(n);
 }
 
 //counter hlper --> recurvsive
 template <class T>
-T GenBST<T>::count(Node *n) const {
+int GenBST<T>::count(Node *n) const {
     if (n == NULL){
         return 0;
     }
@@ -223,7 +223,7 @@ typename GenBST<T>::Node* GenBST<T>::getPredecessorNode(T value) const{
 
 // // returns the predecessor value of the given value or 0 if there is none
 template <class T> 
-T GenBST<T>::getPredecessor(T value) const{
+int GenBST<T>::getPredecessor(T value) const{
     if (getPredecessorNode(value) == NULL) {
         return 0;
     }
@@ -266,7 +266,7 @@ typename GenBST<T>::Node* GenBST<T>::getSuccessorNode(T value) const{
 
 // returns the successor value of the given value or 0 if there is none
 template <class T> 
-T GenBST<T>::getSuccessor(T value) const{
+int GenBST<T>::getSuccessor(T value) const{
     if (getSuccessorNode(value) == NULL) {
         return 0;
     }
