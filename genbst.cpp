@@ -133,14 +133,14 @@ void GenBST<T>::printPostOrder(Node *n) const {
 }
 
 template <class T>
-int GenBST<T>::sum() const {
+T GenBST<T>::sum() const {
     Node *n = root;
     return sum(n);
 }
 
 // //sum helper --> recursive
 template <class T>
-int GenBST<T>::sum(Node *n) const {
+T GenBST<T>::sum(Node *n) const {
     if (n == NULL){
         return 0;
     }
@@ -156,7 +156,7 @@ int GenBST<T>::count() const {
 
 //counter hlper --> recurvsive
 template <class T>
-int GenBST<T>::count(Node *n) const {
+T GenBST<T>::count(Node *n) const {
     if (n == NULL){
         return 0;
     }
@@ -330,7 +330,7 @@ bool GenBST<T>::remove(T value){
 
 //left side has larger values
 template <class T> 
-int GenBST<T>::minVal() const{
+T GenBST<T>::minVal() const{
     Node *min = root;
     while (min->left) {
         min = min->left;
@@ -340,7 +340,7 @@ int GenBST<T>::minVal() const{
 
 // //right side has larger values
 template <class T> 
-int GenBST<T>::maxVal() const {
+T GenBST<T>::maxVal() const {
     Node *max = root;
     while (max->right) {
         max = max->right;
