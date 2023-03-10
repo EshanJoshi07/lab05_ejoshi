@@ -7,12 +7,12 @@
 using namespace std;
 
 // Replace the following existing definition of GenBST with the new class definition
-template <class T>
+template <class T>;
 
 class GenBST {
     public:
         GenBST();
-        ~GenBST();
+        ~GenBST(); 
         bool insert(T value);
         void printPreOrder() const;
         void printInOrder() const;
@@ -49,4 +49,7 @@ class GenBST {
 
 #endif
 
-
+// template <typename T>
+// inline GenBST<T>::GenBST()
+// {
+// }
