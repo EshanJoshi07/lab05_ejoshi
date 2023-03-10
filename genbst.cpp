@@ -32,7 +32,7 @@ void template <class T> GenBST<T>::clear(Node *n) {
 }
 
 // //insert value in tree; return false if duplicate
-bool template <class T> GenBST<T>::insert(int value) {
+bool template <class T> GenBST<T>::insert(T value) {
 
     //check if tree is empty
     if (!root) {
@@ -44,7 +44,7 @@ bool template <class T> GenBST<T>::insert(int value) {
 }
 
 // // //insert helper (assumes n is never 0) --> recrusive 
-bool template <class T> GenBST<T>::insert(int value, Node *n) {
+bool template <class T> GenBST<T>::insert(T value, Node *n) {
     //check if value = n->info
     if (value == n->info)
 	    return false;
@@ -169,12 +169,12 @@ template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getNodeFor(int
 }
 
 // // returns true if value is in the tree; false if not
-bool template <class T> GenBST<T>::contains(int value) const {   
+bool template <class T> GenBST<T>::contains(T value) const {   
     return getNodeFor(value,root)!= NULL;
 }
 
 // // returns the Node containing the predecessor of the given value
-template <class T> GenBST<T>::Node* Cards::getPredecessorNode(int value) const{
+template <class T> GenBST<T>::Node* Cards::getPredecessorNode(T value) const{
     Node* temp = getNodeFor(value,root);
     Node* min = root;
     while (min->left){
@@ -204,7 +204,7 @@ template <class T> GenBST<T>::Node* Cards::getPredecessorNode(int value) const{
 }
 
 // // returns the predecessor value of the given value or 0 if there is none
-int template <class T> GenBST<T>::getPredecessor(int value) const{
+int template <class T> GenBST<T>::getPredecessor(T value) const{
     if (getPredecessorNode(value) == NULL) {
         return 0;
     }
@@ -214,7 +214,7 @@ int template <class T> GenBST<T>::getPredecessor(int value) const{
 }
 
 // // returns the Node containing the successor of the given value
-template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNode(int value) const{
+template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNode(T value) const{
     
     Node* temp = getNodeFor(value,root);
     Node* max = root;
@@ -245,7 +245,7 @@ template <class T> GenBST<T>::Node* template <class T> GenBST<T>::getSuccessorNo
 }
 
 // returns the successor value of the given value or 0 if there is none
-int template <class T> GenBST<T>::getSuccessor(int value) const{
+int template <class T> GenBST<T>::getSuccessor(T value) const{
     if (getSuccessorNode(value) == NULL) {
         return 0;
     }
@@ -256,7 +256,7 @@ int template <class T> GenBST<T>::getSuccessor(int value) const{
 
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
-bool template <class T> GenBST<T>::remove(int value){
+bool template <class T> GenBST<T>::remove(T value){
     Node* temp = getNodeFor(value,root);
     if (temp == NULL) {
         return false;
