@@ -297,7 +297,7 @@ bool GenBST<T>::remove(T value){
         return true;
     }
     else if (temp->left && temp->right) {
-        int num = getPredecessor(temp->info);
+        T num = getPredecessor(temp->info);
         remove(getPredecessor(temp->info));
         temp->info = num;
 

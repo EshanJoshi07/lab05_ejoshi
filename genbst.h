@@ -45,7 +45,7 @@ class GenBST {
         
 };
 
-#include genbst.cpp
+#include "genbst.cpp"
 
 #endif
 
